@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 import io.github.kexanie.library.MathView;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Pressed Integral", Toast.LENGTH_LONG).show();
         formula_two = (MathView) findViewById(R.id.formula_two);
         formula_two.setText(formula_two.getText() + toInput);
-        api.startAPICall();
+        //Toast.makeText(this, api.startAPICall(), Toast.LENGTH_LONG).show();
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        api.startAPICall(requestQueue);
     }
 }

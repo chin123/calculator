@@ -14,31 +14,28 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 
 public class api {
-
-    private static RequestQueue requestQueue;
-    public static void startAPICall() {
-
+    public static void startAPICall(final RequestQueue requestQueue) {
         try {
+            Log.d("Newton: ", "Hello");
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                     Request.Method.GET,
-                    "https://newton.now.sh" + "/factor/x^2-1",
+                    "https://newton.now.sh/factor/x^2-1",
                     null,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(final JSONObject response) {
+                            Log.d("Newton: ", "Hooray!!!");
                             apiCallDone(response);
                         }
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(final VolleyError error) {
-                    Log.e("Error:", error.toString());
+                    Log.e("Newton: ", error.toString());
                 }
             });
-
             jsonObjectRequest.setShouldCache(false);
             requestQueue.add(jsonObjectRequest);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

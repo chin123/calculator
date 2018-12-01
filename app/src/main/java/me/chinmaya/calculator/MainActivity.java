@@ -28,5 +28,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Pressed Integral", Toast.LENGTH_LONG).show();
         formula_two = (MathView) findViewById(R.id.formula_two);
         formula_two.setText(formula_two.getText() + toInput);
+        api.startAPICall();
     }
 }

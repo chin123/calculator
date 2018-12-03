@@ -14,12 +14,12 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 
 public class api {
-    public static void startAPICall(final RequestQueue requestQueue) {
+    public static void startAPICall(final RequestQueue requestQueue, final String question) {
         try {
             Log.d("Newton: ", "Hello");
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                     Request.Method.GET,
-                    "https://newton.now.sh/factor/x^2-1",
+                    "https://127.0.0.1:5000/api/v1.0" + question,
                     null,
                     new Response.Listener<JSONObject>() {
                         @Override

@@ -20,7 +20,7 @@
         <EditText
             android:id="@+id/query"
             android:layout_width="match_parent"
-            android:layout_height="85dp"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Search" />
@@ -35,7 +35,7 @@
         <io.github.kexanie.library.MathView
             android:id="@+id/formula_two"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="80dp"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -46,7 +46,8 @@
         <ImageView
             android:id="@+id/plot"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

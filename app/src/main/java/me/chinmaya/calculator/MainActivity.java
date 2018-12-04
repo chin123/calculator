@@ -28,7 +28,7 @@ import io.github.kexanie.library.MathView;
 public class MainActivity extends AppCompatActivity {
 
     public void startAPICall(final RequestQueue requestQueue, final String question) {
-        Toast.makeText(this, "Before: " + question, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Before: " + question, Toast.LENGTH_LONG).show();
         try {
             Log.d("compint: ", "Start api call try block");
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
@@ -58,14 +58,15 @@ public class MainActivity extends AppCompatActivity {
     void apiCallDone(final JSONObject response) {
         try {
             Log.d("CompInt: ", response.toString(2));
-            Toast.makeText(this, response.get("solution").toString(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, response.get("solution").toString(), Toast.LENGTH_LONG).show();
             formula_two = (MathView) findViewById(R.id.formula_two);
-            formula_two.setText("$$" + response.get("solution").toString() + "$$");
+            formula_two.setText("$$ Solution: " + response.get("solution").toString() + "$$");
             if (response.get("plot") != "") {
                 byte[] decodedString = Base64.decode(response.get("plot").toString(), Base64.DEFAULT);
                 Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                 ImageView image =(ImageView)findViewById(R.id.plot);
                 image.setImageBitmap(decodedByte);
+
             }
         } catch (JSONException ignored) { }
     }
@@ -76,19 +77,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     MathView formula_two;
-    String tex = "\\(Formula:\\)";
+    //String tex = "\\(Solution:\\)";
     @Override
     protected void onResume() {
         super.onResume();
 
-        formula_two = (MathView) findViewById(R.id.formula_two);
-        formula_two.setText(tex);
+        //formula_two = (MathView) findViewById(R.id.formula_two);
+        //formula_two.setText(tex);
     }
     public void search(View view) {
-        String toInput = "\\(\\int\\)";
+        //String toInput = "\\(\\int\\)";
         Toast.makeText(this, "Performing calculation...", Toast.LENGTH_LONG).show();
-        formula_two = (MathView) findViewById(R.id.formula_two);
-        formula_two.setText(formula_two.getText() + toInput);
+        //formula_two = (MathView) findViewById(R.id.formula_two);
+        //formula_two.setText(formula_two.getText() + toInput);
         //Toast.makeText(this, api.startAPICall(), Toast.LENGTH_LONG).show();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         TextView t = findViewById(R.id.query);

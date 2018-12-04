@@ -1,9 +1,13 @@
 package me.chinmaya.calculator;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, response.get("solution").toString(), Toast.LENGTH_LONG).show();
             formula_two = (MathView) findViewById(R.id.formula_two);
             formula_two.setText("$$" + response.get("solution").toString() + "$$");
+            if (response.get("plot") != "") {
+                byte[] decodedString = Base64.decode(response.get("plot").toString(), Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                ImageView image =(ImageView)findViewById(R.id.plot);
+                image.setImageBitmap(decodedByte);
+            }
         } catch (JSONException ignored) { }
     }
 

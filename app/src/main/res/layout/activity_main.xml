@@ -44,7 +44,7 @@
             auto:engine="KaTeX"></io.github.kexanie.library.MathView>
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/plot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />

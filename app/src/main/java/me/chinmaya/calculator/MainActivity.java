@@ -77,20 +77,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     MathView formula_two;
-    //String tex = "\\(Solution:\\)";
     @Override
     protected void onResume() {
         super.onResume();
-
-        //formula_two = (MathView) findViewById(R.id.formula_two);
-        //formula_two.setText(tex);
     }
     public void search(View view) {
-        //String toInput = "\\(\\int\\)";
         Toast.makeText(this, "Performing calculation...", Toast.LENGTH_LONG).show();
-        //formula_two = (MathView) findViewById(R.id.formula_two);
-        //formula_two.setText(formula_two.getText() + toInput);
-        //Toast.makeText(this, api.startAPICall(), Toast.LENGTH_LONG).show();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         TextView t = findViewById(R.id.query);
         startAPICall(requestQueue, t.getText().toString());

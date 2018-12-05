@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             //Toast.makeText(this, response.get("solution").toString(), Toast.LENGTH_LONG).show();
             formula_two = (MathView) findViewById(R.id.formula_two);
             formula_two.setText("$$ Solution: " + response.get("solution").toString() + "$$");
-            if (response.get("plot") != "") {
+            if (!response.get("plot").equals("")) {
                 byte[] decodedString = Base64.decode(response.get("plot").toString(), Base64.DEFAULT);
                 Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                 ImageView image =(ImageView)findViewById(R.id.plot);

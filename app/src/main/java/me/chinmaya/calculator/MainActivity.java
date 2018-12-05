@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("compint: ", "Start api call try block");
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                     Request.Method.GET,
-                    "http://10.0.2.2:5000/api/v1.0/" + question,
+                    "https://stark-island-42972.herokuapp.com/api/v1.0/" + question,
                     null,
                     new Response.Listener<JSONObject>() {
                         @Override

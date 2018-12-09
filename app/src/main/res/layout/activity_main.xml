@@ -43,6 +43,13 @@
             app:layout_constraintTop_toTopOf="parent"
             auto:engine="KaTeX"></io.github.kexanie.library.MathView>
 
+        <ProgressBar
+            android:id="@+id/loadIcon"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
         <ImageView
             android:id="@+id/plot"
             android:layout_width="match_parent"

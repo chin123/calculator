@@ -8,6 +8,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(final VolleyError error) {
-                    Log.e("Newton: ", error.toString());
+                    Log.e("Newton: recalling due to ", error.toString());
+                    //startAPICall(requestQueue, question);
                 }
             });
             jsonObjectRequest.setShouldCache(false);
@@ -57,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
     void apiCallDone(final JSONObject response) {
         try {
+            ProgressBar p = findViewById(R.id.loadIcon);
+            p.setVisibility(View.GONE);
             Log.d("CompInt: ", response.toString(2));
             //Toast.makeText(this, response.get("solution").toString(), Toast.LENGTH_LONG).show();
             formula_two = (MathView) findViewById(R.id.formula_two);
@@ -82,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
     public void search(View view) {
+        ProgressBar p = findViewById(R.id.loadIcon);
+        p.setVisibility(View.VISIBLE);
         Toast.makeText(this, "Performing calculation...", Toast.LENGTH_LONG).show();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         TextView t = findViewById(R.id.query);

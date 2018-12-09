@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(final VolleyError error) {
-                    Log.e("Newton: recalling due to ", error.toString());
+                    Log.e("Newton: re due to ", error.toString());
                     //startAPICall(requestQueue, question);
                 }
             });

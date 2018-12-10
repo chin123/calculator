@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(final VolleyError error) {
                     Log.e("Newton: re due to ", error.toString());
-                    //startAPICall(requestQueue, question);
+                    startAPICall(requestQueue, question);
                 }
             });
             jsonObjectRequest.setShouldCache(false);
